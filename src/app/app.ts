@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PagIncial } from './components/pag-incial/pag-incial';
+import { ListHistoricoPage } from "./components/list-historico-page/list-historico-page";
+import { PageForm } from "./components/page-form/page-form";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PagIncial],
+  imports: [RouterOutlet, ListHistoricoPage, PageForm],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,42 @@
+<form style="display: flex; flex-direction: column; gap: 15px; max-width: 300px;" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  
+    <div style="display: flex; flex-direction: column;">
+      <label for="nome">Nome:</label>
+      <input type="text"placeholder="Digite seu nome" formControlName="nome">
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <label for="cpf">CPF:</label>
+      <input type="text" placeholder="Digite o CPF" formControlName="cpf">
+    </div>
+    
+  <div style="display: flex; flex-direction: column;">
+    <label for="dispositivo">Dispositivo:</label>
+    <input type="text" placeholder="Dispositivo:" formControlName="dispositivo">
+  </div>
+
+  <div style="display: flex; flex-direction: column;">
+    <label for="dispositivo">Defeito:</label>
+    <input type="text" placeholder="Defeito:" formControlName="defeito">
+  </div>
+
+   <div style="display: flex; flex-direction: column;">
+    <label for="dispositivo">Valor:</label>
+    <input type="text" placeholder="Valor:" formControlName="valor">
+  </div>
+
+   <div style="display: flex; flex-direction: column;">
+    <label for="n-telefone">Nº de telefone:</label>
+    <input type="text" placeholder="Nº de telefone:" formControlName="nTelefone">
+  </div>
+
+  <div style="display: flex; flex-direction: column;">
+    <label for="mensagem">Observação (Opcional):</label>
+    <textarea rows="4" formControlName="observacao"></textarea>
+  </div>
+
+  <button type="submit" style="align-self: flex-start; padding: 5px 20px;">
+    Cadastrar
+  </button>
+
+</form>

@@ -1,0 +1,25 @@
+{
+  "formularios": [
+    {
+      "id": "e2d6",
+      "nome": "fghdgfh",
+      "cpf": "dfghdfgh",
+      "dispositivo": "dfghdfg",
+      "defeito": "hdfghdfg",
+      "valor": "hdfghdfg",
+      "nTelefone": "hdfghdf",
+      "observacao": "ghdgfh"
+    },
+    {
+      "id": "2fc3",
+      "nome": "fhgsdfg",
+      "cpf": "sdfgsdfg",
+      "dispositivo": "sdfgsdf",
+      "defeito": "gsdfgsdf",
+      "valor": "gsdfgsdfg",
+      "nTelefone": "sdfgsdf",
+      "observacao": "gsdgsd"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

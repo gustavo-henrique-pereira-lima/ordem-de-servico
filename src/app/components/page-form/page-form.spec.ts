@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagIncial } from './pag-incial';
+import { PageForm } from './page-form';
 
-describe('PagIncial', () => {
-  let component: PagIncial;
-  let fixture: ComponentFixture<PagIncial>;
+describe('PageForm', () => {
+  let component: PageForm;
+  let fixture: ComponentFixture<PageForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PagIncial],
+      imports: [PageForm],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PagIncial);
+    fixture = TestBed.createComponent(PageForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
