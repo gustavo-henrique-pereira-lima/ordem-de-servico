@@ -3,11 +3,12 @@
     <button>Tudo</button>
     <button>Em aberto</button>
     <button>Finalizados</button>
+    <button>Historico</button>
   </div>
   <div>
     <h2>Histórico</h2>
 <table >
-  <thead>
+  <!-- <thead>
     <tr>
       <th>ID</th>
       <th>Nome</th>
@@ -18,11 +19,11 @@
       <th>Telefone</th>
       <th>Observação</th>
     </tr>
-  </thead>
+  </thead> -->
   <tbody>
     @for (f of ordemServico.formularios$ | async; track $index) {
       <tr>
-        <td>{{ f.id }}</td>
+        <!-- <td>{{ f.id }}</td> -->
         <td>{{ f.nome }}</td>
         <td>{{ f.cpf }}</td>
         <td>{{ f.dispositivo }}</td>
@@ -30,7 +31,14 @@
         <td>{{ f.valor }}</td>
         <td>{{ f.nTelefone }}</td>
         <td>{{ f.observacao }}</td>
-      </tr>
+        <td>{{ f.status }}</td>
+        <td>{{ f.dataHora | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td style="display: flex;">
+          <button>#</button>
+          <button>#</button>
+          <button (click)="onExcluir(f.id)"><img src="assets/caixa.png" alt=""></button>
+        </td>
+      </tr> 
     } @empty {
       <tr>
         <td colspan="8">>Nenhum registro encontrado no banco de dados.</td>

@@ -12,8 +12,8 @@ interface Formulario {
   valor: string;
   nTelefone: string;
   observacao: string;
-  descricao: string;
-  dataCriacao: string;
+  status: string;
+  dataHora: Date;    
 }
 
 @Injectable({
@@ -31,7 +31,7 @@ export class OrdemServico {
   //private refreshList = new BehaviorSubject<void>(undefined);
   private refreshSubject = new BehaviorSubject<void>(undefined);
 
-
+  //GET BASE DE DADOS
   // BehaviorSubject guarda o estado atual e emite para quem estiver inscrito
   // private formulariosSubject = new BehaviorSubject<any[]>([]);
   // formularios$ = this.formulariosSubject.asObservable();
@@ -41,10 +41,22 @@ export class OrdemServico {
     shareReplay(1)
   )
   
-  // Create
+  // salva os dados do formulário no banco de dados
   salvarFormulario(dados: any): Observable<any> {
     return this.http.post(this.apiUrl, dados).pipe(
       tap(() => this.refreshSubject.next()) // Apos salvar, atualiza
+    );
+  }
+
+  atualizarFormulario(id: number, dados: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, dados).pipe(
+      tap(() => this.refreshSubject.next()) // Apos atualizar, atualiza
+    );
+  }
+
+  excluirFormulario(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
+      tap(() => this.refreshSubject.next()) // Apos excluir, atualiza
     );
   }
   // READ

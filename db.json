@@ -1,24 +1,16 @@
 {
   "formularios": [
     {
-      "id": "e2d6",
-      "nome": "fghdgfh",
-      "cpf": "dfghdfgh",
-      "dispositivo": "dfghdfg",
-      "defeito": "hdfghdfg",
-      "valor": "hdfghdfg",
-      "nTelefone": "hdfghdf",
-      "observacao": "ghdgfh"
-    },
-    {
-      "id": "2fc3",
-      "nome": "fhgsdfg",
-      "cpf": "sdfgsdfg",
-      "dispositivo": "sdfgsdf",
-      "defeito": "gsdfgsdf",
-      "valor": "gsdfgsdfg",
-      "nTelefone": "sdfgsdf",
-      "observacao": "gsdgsd"
+      "id": "367d",
+      "nome": "",
+      "cpf": "",
+      "dispositivo": "",
+      "defeito": "",
+      "valor": "",
+      "nTelefone": "",
+      "observacao": "",
+      "status": "Pendente",
+      "dataHora": "2026-03-08T14:09:06.336Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

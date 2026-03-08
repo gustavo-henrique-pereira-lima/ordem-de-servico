@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { OrdemServico } from '../../model/ordem-servico';
 
 @Component({
   selector: 'app-list-historico-page',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, DatePipe ],
   templateUrl: './list-historico-page.html',
   styleUrl: './list-historico-page.css',
 })
@@ -15,7 +15,7 @@ export class ListHistoricoPage implements OnInit {
   constructor(public ordemServico: OrdemServico) {}
 
   ngOnInit(): void {
-    
+
     this.ordemServico.formularios$.subscribe(dados => {
       this.formularios = dados;
     })
@@ -29,6 +29,15 @@ export class ListHistoricoPage implements OnInit {
     this.ordemServico.recarregar();
   }
 
+  onExcluir(id: number): void {
+    if (confirm('Tem certeza que deseja excluir este formulário?')) {
+      this.ordemServico.excluirFormulario(id).subscribe(() => {
+        // A atualização da lista é feita automaticamente pelo BehaviorSubject
+      });
+    }
+  }
+
   
+
 
 }
