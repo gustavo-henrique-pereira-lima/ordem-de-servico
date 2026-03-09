@@ -12,7 +12,7 @@ interface Formulario {
   valor: string;
   nTelefone: string;
   observacao: string;
-  status: string;
+  status: 'Pendente' | 'Concluída';
   dataHora: Date;    
 }
 
@@ -23,9 +23,6 @@ export class OrdemServico {
   // Linha base de dados json
   private apiUrl  = 'http://localhost:3000/formularios';
 
-  // constructor(private http: HttpClient){
-  //   this.listarFormularios()
-  // }
   private http = inject(HttpClient) //Substitui o construtor
 
   //private refreshList = new BehaviorSubject<void>(undefined);
@@ -33,40 +30,41 @@ export class OrdemServico {
 
   //GET BASE DE DADOS
   // BehaviorSubject guarda o estado atual e emite para quem estiver inscrito
-  // private formulariosSubject = new BehaviorSubject<any[]>([]);
-  // formularios$ = this.formulariosSubject.asObservable();
+  // switchMap é usado para transformar o valor emitido pelo refreshSubject em uma nova Observable que faz a requisição HTTP
   formularios$ = this.refreshSubject.pipe(
     switchMap(() => this.http.get<Formulario[]>(this.apiUrl)),
     map(dados => [...dados].reverse()),
     shareReplay(1)
   )
   
+  // Filtra os serviços pendentes e concluídos
+  servicosPendentes = this.formularios$.pipe(
+    map(formularios => formularios.filter(formulario => formulario.status === 'Pendente'))
+  );
+  // Filtra os serviços pendentes e concluídos
+  servicosConcluidos = this.formularios$.pipe(
+    map(formularios => formularios.filter(formulario => formulario.status === 'Concluída'))
+  );
+
   // salva os dados do formulário no banco de dados
-  salvarFormulario(dados: any): Observable<any> {
-    return this.http.post(this.apiUrl, dados).pipe(
+  salvarFormulario(dados: any): Observable<Formulario> {
+    return this.http.post<Formulario>(this.apiUrl, dados).pipe(
       tap(() => this.refreshSubject.next()) // Apos salvar, atualiza
     );
   }
 
-  atualizarFormulario(id: number, dados: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, dados).pipe(
-      tap(() => this.refreshSubject.next()) // Apos atualizar, atualiza
+  concluirOrdem(id: number): Observable<Formulario> {
+    return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, {
+      status: 'Concluída' }).pipe(
+      tap(() => this.refreshSubject.next()) // Apos concluir, atualiza
     );
   }
 
-  excluirFormulario(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
+  excluirFormulario(id: number): Observable<Formulario> {
+    return this.http.delete<Formulario>(`${this.apiUrl}/${id}`).pipe(
       tap(() => this.refreshSubject.next()) // Apos excluir, atualiza
     );
   }
-  // READ
-  // listarFormularios(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // listarFormularios(): void {
-  //   this.http.get<Formulario[]>(this.apiUrl).subscribe(dados => {
-  //     this.formulariosSubject.next(dados.reverse()); //lista o formulario de forma invertida
-  //   })
-  // }
 
   recarregar(): void {
     this.refreshSubject.next(); // Emite um valor para atualizar a lista
