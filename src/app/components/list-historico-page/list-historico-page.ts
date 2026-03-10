@@ -1,32 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { OrdemServico } from '../../model/ordem-servico';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-list-historico-page',
-  imports: [AsyncPipe, DatePipe ],
+  imports: [AsyncPipe, MatIconModule],
   templateUrl: './list-historico-page.html',
   styleUrl: './list-historico-page.css',
 })
 export class ListHistoricoPage implements OnInit {
-    formularios: any[] = [];
+  
+  private ordemServico = inject(OrdemServico); 
 
-  //constructor(public ordemServico: OrdemServico) {}
-  constructor(public ordemServico: OrdemServico) {}
+  public formularios: any[] = [];
 
+  // Ao iniciar o componente, inscreve-se para receber atualizações dos formulários e carrega os dados iniciais
   ngOnInit(): void {
+    // this.ordemServico.formularios$.subscribe(dados => {
+    //   this.formularios = dados;
+    // })
+    //   // Inscreve-se para receber atualizações
+    // this.ordemServico.formularios$.subscribe(dados => {
+    //  this.formularios = dados;
+    // });
+    // // Carrega os dados logo ao iniciar
+    // this.ordemServico.recarregar();
+  }
 
-    this.ordemServico.formularios$.subscribe(dados => {
-      this.formularios = dados;
-    })
-
-      // Inscreve-se para receber atualizações
-    this.ordemServico.formularios$.subscribe(dados => {
-     this.formularios = dados;
+  onConcluir(id: number): void {
+    this.ordemServico.concluirOrdem(id).subscribe(() => {
+      // A atualização da lista é feita automaticamente pelo BehaviorSubject
     });
-
-    // Carrega os dados logo ao iniciar
-    this.ordemServico.recarregar();
   }
 
   onExcluir(id: number): void {
@@ -37,6 +43,9 @@ export class ListHistoricoPage implements OnInit {
     }
   }
 
+  // O "$" é uma convenção para indicar que é um Observable
+  public servicosPendentes$ = this.ordemServico.servicosPendentes;
+  
   
 
 

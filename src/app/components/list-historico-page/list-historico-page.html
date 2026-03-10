@@ -1,3 +1,76 @@
+<!-- Coluna 2: Pendentes -->
+    <section class="bg-[#0d1713] rounded-2xl border border-[#1a2f26] p-6 flex flex-col h-fit">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-[#1a241b] flex items-center justify-center text-[#eab308]">
+            <mat-icon class="text-[20px] w-[20px] h-[20px]">schedule</mat-icon>
+          </div>
+          <h2 class="text-lg font-bold text-white">Pendentes</h2>
+        </div>
+        <span class="bg-[#132b21] text-[#7aa899] text-xs font-bold px-3 py-1 rounded-full">
+          <!-- {{ servicosPendentesList().length }} -->
+            {{ (servicosPendentes$ | async)?.length || 0 }}
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-4">
+          @for (order of servicosPendentes$ | async; track order.id) {
+            <div class="border border-[#1a2f26] rounded-xl p-5 bg-[#08100d]">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-white text-lg">{{ order.nome }}</h3>
+                <span class="bg-[#132b21] text-[#7aa899] text-xs font-medium px-2.5 py-1 rounded-md">{{ order.dispositivo }}</span>
+              </div>
+              
+              <div class="text-[#1fd68b] font-bold text-lg mb-4">
+                R$ {{ order.valor }}
+              </div>
+              
+              <div class="grid grid-cols-2 gap-y-3 gap-x-2 text-sm text-[#7aa899] mb-4">
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">call</mat-icon>
+                  {{ order.nTelefone }}
+                </div>
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">sell</mat-icon>
+                  {{ order.defeito }}
+                </div>
+                <div class="flex items-center gap-2 col-span-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">description</mat-icon>
+                  {{ order.cpf }}
+                </div>
+              </div>
+
+              @if (order.observacao) {
+                <div class="bg-[#0d1713] border border-[#1a2f26] rounded-lg p-3 mb-4 text-sm">
+                  <span class="font-bold text-gray-300">Obs:</span> <span class="text-[#7aa899]">{{ order.observacao }}</span>
+                </div>
+              }
+
+              <div class="flex gap-3">
+                <button (click)="onConcluir(order.id)"
+                        class="flex-1 bg-[#132b21] hover:bg-[#1a382b] text-white font-bold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm border border-[#1a2f26]">
+                  <mat-icon class="text-[18px] w-[18px] h-[18px]">check</mat-icon>
+                  Finalizar
+                </button>
+                <button (click)="onExcluir(order.id)"
+                        class="w-11 h-11 flex items-center justify-center bg-[#132b21] hover:bg-red-900/30 text-[#7aa899] hover:text-red-400 rounded-xl transition-colors border border-[#1a2f26]">
+                  <mat-icon class="text-[18px] w-[18px] h-[18px]">delete_outline</mat-icon>
+                </button>
+              </div>
+            </div>
+          } @empty {
+            <div class="text-center py-10 text-[#3f5c51] flex flex-col items-center gap-2">
+            <mat-icon class="text-4xl opacity-50">inbox</mat-icon>
+            <p>Nenhuma ordem pendente</p>
+          </div>
+          }
+      </div>
+    </section>
+
+
+
+
+<!--
 <div>
   <div>
     <button>Tudo</button>
@@ -8,7 +81,7 @@
   <div>
     <h2>Histórico</h2>
 <table >
-  <!-- <thead>
+  <thead>
     <tr>
       <th>ID</th>
       <th>Nome</th>
@@ -19,11 +92,11 @@
       <th>Telefone</th>
       <th>Observação</th>
     </tr>
-  </thead> -->
+  </thead> 
   <tbody>
     @for (f of ordemServico.formularios$ | async; track $index) {
       <tr>
-        <!-- <td>{{ f.id }}</td> -->
+        <td>{{ f.id }}</td> 
         <td>{{ f.nome }}</td>
         <td>{{ f.cpf }}</td>
         <td>{{ f.dispositivo }}</td>
@@ -47,4 +120,6 @@
   </tbody>
 </table>
 
-<!-- </div> -->
+</div>
+
+-->

@@ -31,18 +31,18 @@ export class OrdemServico {
   //GET BASE DE DADOS
   // BehaviorSubject guarda o estado atual e emite para quem estiver inscrito
   // switchMap é usado para transformar o valor emitido pelo refreshSubject em uma nova Observable que faz a requisição HTTP
-  formularios$ = this.refreshSubject.pipe(
+  private formularios$ = this.refreshSubject.pipe(
     switchMap(() => this.http.get<Formulario[]>(this.apiUrl)),
     map(dados => [...dados].reverse()),
     shareReplay(1)
   )
   
   // Filtra os serviços pendentes e concluídos
-  servicosPendentes = this.formularios$.pipe(
+  public servicosPendentes = this.formularios$.pipe(
     map(formularios => formularios.filter(formulario => formulario.status === 'Pendente'))
   );
   // Filtra os serviços pendentes e concluídos
-  servicosConcluidos = this.formularios$.pipe(
+  public servicosConcluidos = this.formularios$.pipe(
     map(formularios => formularios.filter(formulario => formulario.status === 'Concluída'))
   );
 

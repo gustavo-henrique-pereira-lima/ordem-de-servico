@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, computed, inject } from '@angular/core';
+import { FormControl,  ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { OrdemServico } from '../../model/ordem-servico';
 
 
+
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-page-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule, MatIconModule],
   templateUrl: './page-form.html',
   styleUrl: './page-form.css',
 })

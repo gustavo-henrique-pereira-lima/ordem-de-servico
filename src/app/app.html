@@ -1,4 +1,21 @@
-<app-page-form/> 
-<app-list-historico-page/>
-<app-historico-ordem-servico/>
+<div class="min-h-screen bg-[#08100d] text-gray-200 font-sans p-4 lg:p-8">
+  <header class="mb-8 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#1fd68b] rounded-xl flex items-center justify-center text-[#08100d] shadow-sm">
+          <mat-icon>bolt</mat-icon>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold tracking-tight text-white flex items-center gap-1">
+            JDF<span class="text-[#1fd68b]">CELL</span>
+          </h1>
+          <p class="text-sm text-[#7aa899]">Painel de Operações</p>
+        </div>
+      </div>
+    </header>
+  <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+    <app-page-form/> 
+    <app-list-historico-page/>
+    <app-historico-ordem-servico/>  
+  </main>
+</div>
 <router-outlet></router-outlet>
