@@ -74,6 +74,45 @@
       "observacao": "esfsweff",
       "status": "Concluída",
       "dataHora": "2026-03-18T21:54:31.030Z"
+    },
+    {
+      "id": "6dcd",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "Samsung",
+      "dispositivo": "s22",
+      "defeito": "tela quebrada",
+      "valor": 1.01,
+      "nTelefone": "91999999999",
+      "observacao": "dscxdscsc",
+      "status": "Concluída",
+      "dataHora": "2026-03-20T20:37:26.616Z"
+    },
+    {
+      "id": "40f2",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "Samsung",
+      "dispositivo": "s22",
+      "defeito": "tela quebrada",
+      "valor": 1.01,
+      "nTelefone": "91999999999",
+      "observacao": "dscxdscsc",
+      "status": "Concluída",
+      "dataHora": "2026-03-20T20:37:37.078Z"
+    },
+    {
+      "id": "ad65",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "Samsung",
+      "dispositivo": "s22",
+      "defeito": "tela quebrada",
+      "valor": 1.01,
+      "nTelefone": "91999999999",
+      "observacao": "dscxdscsc",
+      "status": "Pendente",
+      "dataHora": "2026-03-20T20:37:42.951Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
