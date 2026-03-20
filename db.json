@@ -35,6 +35,45 @@
       "observacao": "Nao deixar sujo",
       "status": "Concluída",
       "dataHora": "2026-03-10T16:16:31.922Z"
+    },
+    {
+      "id": "23fa",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "Apple",
+      "dispositivo": "s10",
+      "defeito": "tela quebrada",
+      "valor": 1.03,
+      "nTelefone": "91999999999",
+      "observacao": "",
+      "status": "Concluída",
+      "dataHora": "2026-03-18T20:59:31.276Z"
+    },
+    {
+      "id": "d403",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "LG",
+      "dispositivo": "s22",
+      "defeito": "tela quebrada",
+      "valor": 1,
+      "nTelefone": "91999999999",
+      "observacao": "zzsxx",
+      "status": "Concluída",
+      "dataHora": "2026-03-18T21:29:28.895Z"
+    },
+    {
+      "id": "e007",
+      "nome": "davi lima",
+      "cpf": "",
+      "marca": "Apple",
+      "dispositivo": "s10",
+      "defeito": "tela quebrada",
+      "valor": 1.01,
+      "nTelefone": "91999999999",
+      "observacao": "esfsweff",
+      "status": "Concluída",
+      "dataHora": "2026-03-18T21:54:31.030Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

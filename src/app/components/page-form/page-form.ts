@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, signal, computed, inject } from '@a
 import { FormControl,  ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrdemServico } from '../../model/ordem-servico';
 
 
@@ -9,7 +11,7 @@ import { OrdemServico } from '../../model/ordem-servico';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-page-form',
-  imports: [ReactiveFormsModule, CommonModule, MatIconModule],
+  imports: [ReactiveFormsModule, CommonModule, MatIconModule, MatSelectModule, MatFormFieldModule],
   templateUrl: './page-form.html',
   styleUrl: './page-form.css',
 })
@@ -18,9 +20,24 @@ export class PageForm {
   //constructor(private ordemServico: OrdemServico){}
   private ordemServico = inject(OrdemServico);
 
+  // Evoluímos a lista para ter um nome e um ícone do Material Icons
+  marcas =[
+    { nome: 'Samsung' },
+    { nome: 'Apple' },
+    { nome: 'Motorola' },
+    { nome: 'Xiaomi' },
+    { nome: 'Huawei' },
+    { nome: 'LG' },
+    { nome: 'Sony' },
+    { nome: 'Nokia' },
+    { nome: 'OnePlus' },
+    { nome: 'Google' }
+  ];
+
   formulario = new FormGroup({
     nome: new FormControl(''),
     cpf: new FormControl(''),
+    marca: new FormControl(''),
     dispositivo: new FormControl(''),
     defeito: new FormControl(''),
     valor: new FormControl(''),
@@ -28,7 +45,7 @@ export class PageForm {
     observacao: new FormControl(''),
     status: new FormControl('Pendente'),
     dataHora: new FormControl(new Date()),
-  })
+  });
 
 
 

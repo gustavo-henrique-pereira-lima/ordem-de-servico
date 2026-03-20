@@ -7,6 +7,7 @@ interface Formulario {
   id: number;
   nome: string;
   cpf: string;
+  marca: string;
   dispositivo: string;
   defeito: string;
   valor: string;
