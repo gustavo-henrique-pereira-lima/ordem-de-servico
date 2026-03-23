@@ -102,17 +102,82 @@
       "dataHora": "2026-03-20T20:37:37.078Z"
     },
     {
-      "id": "ad65",
-      "nome": "davi lima",
+      "id": "7383",
+      "nome": "JOSE LIMA",
       "cpf": "99999999999",
       "marca": "Samsung",
+      "dispositivo": "s24 ULTRA",
+      "defeito": "CAMERA FRONTAL",
+      "valor": "500",
+      "nTelefone": "91999999999",
+      "observacao": "rferfge",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T16:23:30.597Z"
+    },
+    {
+      "id": "3b8c",
+      "nome": "DAVI LIMA",
+      "cpf": "99999999999",
+      "marca": "Samsung",
+      "dispositivo": "s25",
+      "defeito": "tela quebrada",
+      "valor": "200",
+      "nTelefone": "91999999999",
+      "observacao": "rferfge",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T16:24:14.286Z"
+    },
+    {
+      "id": "de4a",
+      "nome": "LUCAS lima",
+      "cpf": "99999999999",
+      "marca": "Xiaomi",
+      "dispositivo": "17 PRO MAX",
+      "defeito": "BATERIA",
+      "valor": "1000",
+      "nTelefone": "91999999999",
+      "observacao": "bateria enchada",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T16:25:17.521Z"
+    },
+    {
+      "id": "abcd",
+      "nome": "DIOGO LIMA",
+      "cpf": "99999999999",
+      "marca": "Apple",
+      "dispositivo": "17 PRO MAX",
+      "defeito": "ENTRADA DE CARREGADOR",
+      "valor": 300,
+      "nTelefone": "91999999999",
+      "observacao": "TROCA A ENTRADA",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T16:35:17.934Z"
+    },
+    {
+      "id": "3c12",
+      "nome": "davi lima",
+      "cpf": "99999999999",
+      "marca": "Motorola",
       "dispositivo": "s22",
       "defeito": "tela quebrada",
-      "valor": 1.01,
+      "valor": 444,
       "nTelefone": "91999999999",
-      "observacao": "dscxdscsc",
-      "status": "Pendente",
-      "dataHora": "2026-03-20T20:37:42.951Z"
+      "observacao": "TTTTT",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T17:25:07.879Z"
+    },
+    {
+      "id": "3fcc",
+      "nome": "davi lima",
+      "cpf": "99999999944",
+      "marca": "Motorola",
+      "dispositivo": "s29",
+      "defeito": "tela quebrada",
+      "valor": 444,
+      "nTelefone": "91999999944",
+      "observacao": "LLL",
+      "status": "Concluída",
+      "dataHora": "2026-03-23T17:25:09.651Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

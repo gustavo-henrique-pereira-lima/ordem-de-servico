@@ -14,7 +14,8 @@ interface Formulario {
   nTelefone: string;
   observacao: string;
   status: 'Pendente' | 'Concluída';
-  dataHora: Date;    
+  dataHora: Date;
+  editando?: boolean; // Propriedade para controlar o modo de edição
 }
 
 @Injectable({
@@ -51,6 +52,12 @@ export class OrdemServico {
   salvarFormulario(dados: any): Observable<Formulario> {
     return this.http.post<Formulario>(this.apiUrl, dados).pipe(
       tap(() => this.refreshSubject.next()) // Apos salvar, atualiza
+    );
+  }
+
+  atualizarFormulario(id: number, dados: any): Observable<Formulario> {
+    return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, dados).pipe(
+      tap(() => this.refreshSubject.next()) // Apos atualizar, atualiza
     );
   }
 

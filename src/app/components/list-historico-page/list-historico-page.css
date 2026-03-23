@@ -1,0 +1,50 @@
+/* Estilos para edição inline */
+.edit-input {
+  background-color: #08100d;
+  color: inherit;
+  border: 2px solid #1a2f26;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.edit-input:focus {
+  border-color: #00ff88;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.35);
+}
+
+.edit-textarea {
+  background-color: #0d1713;
+  color: #7aa899;
+  border: 2px solid #1a2f26;
+  border-radius: 4px;
+  padding: 2px 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: inherit;
+  resize: none;
+  width: 100%;
+}
+
+.edit-textarea:focus {
+  border-color: #00ff88;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.35);
+}
+
+.pendentes-wrapper {
+  max-height: 76.5vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pendentes-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pendentes-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(125, 211, 110, 0.45);
+  border-radius: 999px;
+}
