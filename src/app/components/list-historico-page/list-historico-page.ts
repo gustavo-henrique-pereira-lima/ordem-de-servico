@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { OrdemServico } from '../../model/ordem-servico';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-list-historico-page',
-  imports: [AsyncPipe, MatIconModule],
+  imports: [AsyncPipe, MatIconModule, FormsModule],
   templateUrl: './list-historico-page.html',
   styleUrl: './list-historico-page.css',
 })
@@ -46,7 +47,15 @@ export class ListHistoricoPage implements OnInit {
   // O "$" é uma convenção para indicar que é um Observable
   public servicosPendentes$ = this.ordemServico.servicosPendentes;
   
-  
+  toggleEdit(ordem: any): void {
+    ordem.editando = !ordem.editando;
+  }
 
-
+  salvarEdicao(ordem: any): void {
+    const { editando, ...dadosParaSalvar } = ordem; // Remove a propriedade editando
+    this.ordemServico.atualizarFormulario(ordem.id, dadosParaSalvar).subscribe(() => {
+      ordem.editando = false;
+      console.log('Dados editados salvos:', dadosParaSalvar);
+    });
+  }
 }

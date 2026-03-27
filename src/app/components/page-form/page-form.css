@@ -1,0 +1,78 @@
+/* ==================================================================
+   1. ESTILOS DA CAIXA PRINCIPAL DO SELECT (GATILHO)
+   ================================================================== */
+
+/* Fundo da caixa principal e borda arredondada */
+::ng-deep .select-marca-custom .mdc-text-field--outlined {
+  background-color: #08100d !important;
+  border-radius: 0.75rem !important; 
+}
+
+/* Borda padrão escura */
+::ng-deep .select-marca-custom .mdc-notched-outline__leading,
+::ng-deep .select-marca-custom .mdc-notched-outline__notch,
+::ng-deep .select-marca-custom .mdc-notched-outline__trailing {
+  border-color: #1a2f26 !important;
+  border-width: 1px !important;
+}
+
+/* Borda verde neon ao clicar (Focus) */
+::ng-deep .select-marca-custom .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+::ng-deep .select-marca-custom .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+::ng-deep .select-marca-custom .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #1fd68b !important;
+  border-width: 1px !important;
+}
+
+/* Cores dos textos do gatilho */
+::ng-deep .select-marca-custom .mat-mdc-select-value-text { color: white !important; }
+::ng-deep .select-marca-custom .mat-mdc-select-placeholder { color: #3f5c51 !important; }
+::ng-deep .select-marca-custom .mat-mdc-select-arrow { color: #7aa899 !important; }
+
+/* Ajuste de altura e remoção da margem inútil de baixo */
+::ng-deep .select-marca-custom .mat-mdc-form-field-infix {
+  padding-top: 12px !important; 
+  padding-bottom: 12px !important;
+  min-height: auto !important;
+}
+::ng-deep .select-marca-custom .mat-mdc-form-field-subscript-wrapper {
+  display: none !important; 
+}
+
+
+/* ==================================================================
+   2. ESTILOS DA LISTA SUSPENSA (PAINEL / OVERLAY)
+   ================================================================== */
+
+/* Força o fundo sólido e escuro da lista voadora */
+::ng-deep .cdk-overlay-pane .meu-painel-escuro,
+::ng-deep .meu-painel-escuro.mat-mdc-select-panel,
+::ng-deep .meu-painel-escuro .mdc-list {
+  background-color: #08100d !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Sombra para não parecer que tá grudado nos campos de baixo */
+::ng-deep .cdk-overlay-pane:has(.meu-painel-escuro) {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Fundo das opções e cor das letras */
+::ng-deep .meu-painel-escuro .mat-mdc-option {
+  background-color: #08100d !important;
+  color: #e2e8f0 !important;
+  border-bottom: 1px solid rgba(26, 47, 38, 0.3) !important;
+}
+
+/* Cor verde ao passar o mouse ou selecionar */
+::ng-deep .meu-painel-escuro .mat-mdc-option:hover:not(.mdc-list-item--disabled),
+::ng-deep .meu-painel-escuro .mat-mdc-option:focus:not(.mdc-list-item--disabled),
+::ng-deep .meu-painel-escuro .mat-mdc-option.mdc-list-item--selected {
+  background-color: #132b21 !important;
+  color: #1fd68b !important;
+}
+
+/* Corrige a cor do ícone de "check" */
+::ng-deep .meu-painel-escuro .mat-pseudo-checkbox-checked::after {
+  border-color: #1fd68b !important;
+}
