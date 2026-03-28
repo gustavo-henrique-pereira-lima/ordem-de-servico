@@ -25,15 +25,38 @@
                 R$ {{ order.valor | number:'1.2-2' }} • {{ order.marca }} | {{ order.dispositivo }}
               </div>
               
-              <div class="flex items-center gap-4 text-xs text-[#5a7d70]">
+              <div class="grid grid-cols-2 gap-3 text-sm text-[#7aa899] mb-4">
                 <div class="flex items-center gap-1.5">
                   <mat-icon class="text-[14px] w-[14px] h-[14px]">sell</mat-icon>
                   {{ order.defeito }}
                 </div>
                 <div class="flex items-center gap-1.5">
+                  <mat-icon class="text-[14px] w-[14px] h-[14px]">call</mat-icon>
+                  {{ order.nTelefone }}
+                </div>
+                <div class="flex items-center gap-1.5">
                   <mat-icon class="text-[14px] w-[14px] h-[14px]">description</mat-icon>
                   {{ order.cpf }}
                 </div>
+                <div class="flex items-center gap-1.5">
+                  <mat-icon class="text-[14px] w-[14px] h-[14px]">confirmation_number</mat-icon>
+                  {{ order.imei }}
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <mat-icon class="text-[14px] w-[14px] h-[14px]">military_tech</mat-icon>
+                  {{ order.garantia }}
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <mat-icon class="text-[14px] w-[14px] h-[14px]">payment</mat-icon>
+                  {{ order.formaPagamento }}
+                </div>
+                <div class="flex items-center gap-1.5 col-span-2">
+                  <mat-icon class="text-[14px] w-[14px] h-[14px]">report_problem</mat-icon>
+                  {{ order.avarias || 'Sem avarias' }}
+                </div>
+              </div>
+              <div class="text-xs text-[#5a7d70]">
+                {{ order.dataHora | date:'dd/MM/yyyy HH:mm' }}
               </div>
             </div>
           } @empty {

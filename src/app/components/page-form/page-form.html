@@ -7,73 +7,90 @@
     <h2 class="text-lg font-bold text-white">Nova Ordem</h2>
   </div>
 
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
-    
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="flex flex-col gap-1.5">
+
     <!-- NOME -->
     <div class="flex flex-col gap-1.5">
       <label for="nome" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
         <mat-icon class="text-[16px] w-[16px] h-[16px]">person_outline</mat-icon> NOME
       </label>
-      <input type="text" id="nome" formControlName="nome" 
-             class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-             placeholder="Digite seu nome">
+      <input type="text" id="nome" formControlName="nome"
+        class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+        placeholder="Digite seu nome">
     </div>
-
-    <!-- CPF -->
-    <div class="flex flex-col gap-1.5">
-      <label for="cpf" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
-        <mat-icon class="text-[16px] w-[16px] h-[16px]">badge</mat-icon> CPF
-      </label>
-      <input type="text" id="cpf" formControlName="cpf" 
-             class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-             placeholder="Digite o CPF">
-    </div>
-
+    
     <div class="grid grid-cols-2 gap-4">
 
+
+      <!-- CPF -->
+      <div class="flex flex-col gap-1.5">
+        <label for="cpf" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+          <mat-icon class="text-[16px] w-[16px] h-[16px]">badge</mat-icon> CPF
+        </label>
+        <input type="text" id="cpf" formControlName="cpf"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Digite o CPF">
+      </div>
+
+      <!-- Imei ou N de série -->
+      <div class="flex flex-col gap-1.5">
+        <label for="imei" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+          <mat-icon class="text-[16px] w-[16px] h-[16px]">confirmation_number</mat-icon> Imei ou N de série
+        </label>
+        <input type="text" id="imei" formControlName="imei"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Digite seu Imei ou N de série">
+      </div>
+      
       <!-- MARCA -->
       <div class="flex flex-col gap-1.5">
         <label for="marca" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">smartphone</mat-icon> MARCA
         </label>
-            
-        <select 
-          name="marca" 
-          id="marca"
-          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] 
+
+        <select name="marca" id="marca" class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] 
                 focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all
-                invalid:text-[#3f5c51] text-white" 
-          formControlName="marca" 
-          required>
-            <option value="" disabled selected hidden>Marca:</option>
-            <option value="Motorola" class="text-white">Motorola</option>
-            <option value="Apple" class="text-white">Apple</option>
-            <option value="Samsung" class="text-white">Samsung</option>
-            <option value="Xiaomi" class="text-white">Xiaomi</option>
+                invalid:text-[#3f5c51] text-white" formControlName="marca" required>
+          <option value="" disabled selected hidden>Marca:</option>
+          <option value="Motorola" class="text-white">Motorola</option>
+          <option value="Apple" class="text-white">Apple</option>
+          <option value="Samsung" class="text-white">Samsung</option>
+          <option value="Xiaomi" class="text-white">Xiaomi</option>
         </select>
       </div>
 
       <!-- MODELO -->
       <div class="flex flex-col gap-1.5">
-        <label for="dispositivo" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+        <label for="dispositivo"
+          class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">smartphone</mat-icon> MODELOS
         </label>
-        <input type="text" id="dispositivo" formControlName="dispositivo" 
-               class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-               placeholder="Dispositivo:">
+        <input type="text" id="dispositivo" formControlName="dispositivo"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Dispositivo:">
       </div>
 
       <!-- DEFEITO -->
-      <div class="flex flex-col gap-1.5 col-span-2">
+      <div class="flex flex-col gap-1.5">
         <label for="defeito" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">build</mat-icon> DEFEITO
         </label>
-        <input type="text" id="defeito" formControlName="defeito" 
-               class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-               placeholder="Defeito:">
+        <input type="text" id="defeito" formControlName="defeito"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Defeito:">
+      </div>
+
+      <!-- Avarias existentes -->
+      <div class="flex flex-col gap-1.5">
+        <label for="avarias" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+          <mat-icon class="text-[16px] w-[16px] h-[16px]">warning</mat-icon> Avarias existentes
+        </label>
+        <input type="text" id="avarias" formControlName="avarias"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Avarias existentes:">
       </div>
     </div>
-
+    
     <div class="grid grid-cols-2 gap-4">
       <!-- VALOR -->
       <div class="flex flex-col gap-1.5">
@@ -81,18 +98,36 @@
           <mat-icon class="text-[16px] w-[16px] h-[16px]">attach_money</mat-icon> VALOR
         </label>
         <input type="number" id="valor" formControlName="valor" min="1" step="0.01"
-               class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-               placeholder="Valor:">
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Valor:">
       </div>
 
+      <!-- GARANTIA -->
+      <div class="flex flex-col gap-1.5">
+        <label for="garantia" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+          <mat-icon class="text-[16px] w-[16px] h-[16px]">military_tech</mat-icon> GARANTIA
+        </label>
+        <input type="text" id="garantia" formControlName="garantia"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Digite a garantia do serviço">
+      </div>
       <!-- TELEFONE -->
       <div class="flex flex-col gap-1.5">
         <label for="telefone" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">call</mat-icon> Nº DE TELEFONE
         </label>
-        <input type="tel" id="telefone" formControlName="nTelefone" 
-               class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-               placeholder="Nº de telefone:">
+        <input type="tel" id="telefone" formControlName="nTelefone"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Nº de telefone:">
+      </div>
+      <!-- Forma de pagamento -->
+      <div class="flex flex-col gap-1.5">
+        <label for="formaPagamento" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
+          <mat-icon class="text-[16px] w-[16px] h-[16px]">payment</mat-icon> FORMA DE PAGAMENTO
+        </label>
+        <input type="text" id="formaPagamento" formControlName="formaPagamento"
+          class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
+          placeholder="Forma de pagamento:">
       </div>
     </div>
 
@@ -102,13 +137,13 @@
         <mat-icon class="text-[16px] w-[16px] h-[16px]">description</mat-icon> OBSERVAÇÃO (OPCIONAL)
       </label>
       <textarea id="observacao" formControlName="observacao" rows="3"
-                class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all resize-none"
-                placeholder="Detalhes adicionais..."></textarea>
+        class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all resize-none"
+        placeholder="Detalhes adicionais..."></textarea>
     </div>
 
     <button type="submit" [disabled]="formulario.invalid"
-            class="mt-4 w-full bg-[#1fd68b] hover:bg-[#1ab877] disabled:opacity-50 disabled:cursor-not-allowed text-[#08100d] font-bold py-3.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2">
-      <mat-icon>add</mat-icon>
+      class="mt-4 w-full bg-[#1fd68b] hover:bg-[#1ab877] disabled:opacity-50 disabled:cursor-not-allowed text-[#08100d] font-bold py-3.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2">
+      <mat-icon>add_task</mat-icon>
       Adicionar Ordem de Serviço
     </button>
   </form>

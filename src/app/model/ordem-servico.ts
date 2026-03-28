@@ -7,10 +7,14 @@ interface Formulario {
   id: number;
   nome: string;
   cpf: string;
+  imei: string;
   marca: string;
   dispositivo: string;
   defeito: string;
+  avarias: string;
   valor: string;
+  garantia: string;
+  formaPagamento: string;
   nTelefone: string;
   observacao: string;
   status: 'Pendente' | 'Concluída';

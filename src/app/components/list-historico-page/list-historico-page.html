@@ -56,6 +56,38 @@
                     <input [(ngModel)]="order.defeito" class="edit-input text-[#7aa899] bg-transparent border-none outline-none" placeholder="Defeito">
                   }
                 </div>
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">confirmation_number</mat-icon>
+                  @if (!order.editando) {
+                    {{ order.imei }}
+                  } @else {
+                    <input [(ngModel)]="order.imei" class="edit-input text-[#7aa899] bg-transparent border-none outline-none" placeholder="IMEI/Nº de série">
+                  }
+                </div>
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">military_tech</mat-icon>
+                  @if (!order.editando) {
+                    {{ order.garantia }}
+                  } @else {
+                    <input [(ngModel)]="order.garantia" class="edit-input text-[#7aa899] bg-transparent border-none outline-none" placeholder="Garantia">
+                  }
+                </div>
+                <div class="flex items-center gap-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">payment</mat-icon>
+                  @if (!order.editando) {
+                    {{ order.formaPagamento }}
+                  } @else {
+                    <input [(ngModel)]="order.formaPagamento" class="edit-input text-[#7aa899] bg-transparent border-none outline-none" placeholder="Pagamento">
+                  }
+                </div>
+                <div class="flex items-center gap-2 col-span-2">
+                  <mat-icon class="text-[16px] w-[16px] h-[16px]">report_problem</mat-icon>
+                  @if (!order.editando) {
+                    {{ order.avarias || 'Sem avarias' }}
+                  } @else {
+                    <input [(ngModel)]="order.avarias" class="edit-input text-[#7aa899] bg-transparent border-none outline-none" placeholder="Avarias existentes">
+                  }
+                </div>
                 <div class="flex items-center gap-2 col-span-2">
                   <mat-icon class="text-[16px] w-[16px] h-[16px]">description</mat-icon>
                   @if (!order.editando) {
