@@ -30,7 +30,6 @@
     </div>
 
     <div class="grid grid-cols-2 gap-4">
-
       <!-- MARCA -->
       <div class="flex flex-col gap-1.5">
         <label for="marca" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
@@ -38,6 +37,7 @@
         </label>
             
         <select 
+          type="text"
           name="marca" 
           id="marca"
           class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] 
@@ -45,11 +45,11 @@
                 invalid:text-[#3f5c51] text-white" 
           formControlName="marca" 
           required>
-            <option value="" disabled selected hidden>Marca:</option>
-            <option value="Motorola" class="text-white">Motorola</option>
-            <option value="Apple" class="text-white">Apple</option>
-            <option value="Samsung" class="text-white">Samsung</option>
-            <option value="Xiaomi" class="text-white">Xiaomi</option>
+            <option type="text" value="" disabled selected hidden>Marca:</option>
+            <option type="text" value="Motorola" class="text-white">Motorola</option>
+            <option type="text" value="Apple" class="text-white">Apple</option>
+            <option type="text" value="Samsung" class="text-white">Samsung</option>
+            <option type="text" value="Xiaomi" class="text-white">Xiaomi</option>
         </select>
       </div>
 
@@ -58,9 +58,9 @@
         <label for="dispositivo" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">smartphone</mat-icon> MODELOS
         </label>
-        <input type="text" id="dispositivo" formControlName="dispositivo" 
+        <input type="text" id="modelo" formControlName="modelo" 
                class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
-               placeholder="Dispositivo:">
+               placeholder="Modelo:">
       </div>
 
       <!-- DEFEITO -->
@@ -90,7 +90,7 @@
         <label for="telefone" class="text-xs font-bold text-[#7aa899] uppercase tracking-wider flex items-center gap-1">
           <mat-icon class="text-[16px] w-[16px] h-[16px]">call</mat-icon> Nº DE TELEFONE
         </label>
-        <input type="tel" id="telefone" formControlName="nTelefone" 
+        <input type="tel" id="contato" formControlName="contato" 
                class="w-full px-4 py-3 rounded-xl bg-[#08100d] border border-[#1a2f26] text-white placeholder-[#3f5c51] focus:ring-1 focus:ring-[#1fd68b] focus:border-[#1fd68b] outline-none transition-all"
                placeholder="Nº de telefone:">
       </div>

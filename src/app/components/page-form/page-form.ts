@@ -21,27 +21,16 @@ export class PageForm {
   private ordemServico = inject(OrdemServico);
 
   // Evoluímos a lista para ter um nome e um ícone do Material Icons
-  marcas =[
-    { nome: 'Samsung' },
-    { nome: 'Apple' },
-    { nome: 'Motorola' },
-    { nome: 'Xiaomi' },
-    { nome: 'Huawei' },
-    { nome: 'LG' },
-    { nome: 'Sony' },
-    { nome: 'Nokia' },
-    { nome: 'OnePlus' },
-    { nome: 'Google' }
-  ];
+
 
   formulario = new FormGroup({
     nome: new FormControl(''),
     cpf: new FormControl(''),
     marca: new FormControl(''),
-    dispositivo: new FormControl(''),
+    modelo: new FormControl(''),
     defeito: new FormControl(''),
     valor: new FormControl(''),
-    nTelefone: new FormControl(''),
+    contato: new FormControl(''),
     observacao: new FormControl(''),
     status: new FormControl('Pendente'),
     dataHora: new FormControl(new Date()),

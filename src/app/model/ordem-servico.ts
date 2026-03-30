@@ -8,10 +8,10 @@ interface Formulario {
   nome: string;
   cpf: string;
   marca: string;
-  dispositivo: string;
+  modelo: string;
   defeito: string;
   valor: string;
-  nTelefone: string;
+  contato: string;
   observacao: string;
   status: 'Pendente' | 'Concluída';
   dataHora: Date;
@@ -23,7 +23,8 @@ interface Formulario {
 })
 export class OrdemServico {
   // Linha base de dados json
-  private apiUrl  = 'http://localhost:3000/formularios';
+  //private apiUrl  = 'http://localhost:3001/formularios';
+  private apiUrl  = 'http://localhost:3000/ordem-de-servico';
 
   private http = inject(HttpClient) //Substitui o construtor
 
