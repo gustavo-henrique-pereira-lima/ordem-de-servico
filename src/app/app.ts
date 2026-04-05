@@ -4,9 +4,9 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
-import { ListHistoricoPage } from "./components/list-historico-page/list-historico-page";
-import { PageForm } from "./components/page-form/page-form";
-import { HistoricoOrdemServico } from "./components/historico-ordem-servico/historico-ordem-servico";
+import { ListHistoricoPage } from "./pages/home/list-historico-pendentes/list-historico-page";
+import { PageForm } from "./pages/home/page-form/page-form";
+import { HistoricoOrdemServico } from "./pages/home/historico-ordem-servico/historico-ordem-servico";
 
 @Component({
   selector: 'app-root',

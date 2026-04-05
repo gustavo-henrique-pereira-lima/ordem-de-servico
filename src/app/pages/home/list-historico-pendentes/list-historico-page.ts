@@ -1,6 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { OrdemServico } from '../../model/ordem-servico';
+import { OrdemServico } from '../../../services/ordem-servico';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 
@@ -46,6 +46,10 @@ export class ListHistoricoPage implements OnInit {
 
   // O "$" é uma convenção para indicar que é um Observable
   public servicosPendentes$ = this.ordemServico.servicosPendentes;
+
+  // setor de edição
+  editando = signal(false);
+
   
   toggleEdit(ordem: any): void {
     ordem.editando = !ordem.editando;

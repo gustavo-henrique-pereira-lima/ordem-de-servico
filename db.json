@@ -10,8 +10,21 @@
       "valor": 300,
       "nTelefone": "(98) 98233-2842",
       "observacao": "t5wyw4ys",
-      "status": "Pendente",
+      "status": "Concluída",
       "dataHora": "2026-03-30T13:18:09.687Z"
+    },
+    {
+      "id": "a178",
+      "nome": "GUSTAVO HENRIQUE PEREIRA LIMA",
+      "cpf": "627.867.593-58",
+      "marca": "Motorola",
+      "modelo": "edge 50 pro",
+      "defeito": "Modulo",
+      "valor": 300,
+      "contato": "98982332842",
+      "observacao": "ndfjognwjeiongjio",
+      "status": "Pendente",
+      "dataHora": "2026-04-05T14:30:35.243Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -76,3 +76,28 @@
 ::ng-deep .meu-painel-escuro .mat-pseudo-checkbox-checked::after {
   border-color: #1fd68b !important;
 }
+
+/* ==================================================================
+   3. ESTILO DO ALERTA
+   ================================================================== */
+   
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* O Angular v20 aplica estas classes ao adicionar/remover do DOM */
+.alerta-container:enter {
+  animation: slideIn 0.3s ease-out;
+}
+
+.alerta-container:leave {
+  animation: slideIn 0.3s ease-in reverse;
+}
+
+/* Estilo da barra de progresso (a linha vermelha da imagem) */
+.progress-bar {
+  height: 4px;
+  background: #f44336;
+  width: 50%; /* No exemplo da imagem está na metade */
+}

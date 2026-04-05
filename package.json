@@ -25,6 +25,7 @@
     "@angular/ssr": "^21.2.0",
     "@tailwindcss/postcss": "^4.2.1",
     "express": "^5.1.0",
+    "ngx-toastr": "^20.0.5",
     "postcss": "^8.5.8",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.2.1",

@@ -3,39 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap, map, shareReplay, tap } from 'rxjs/operators';
 
-interface Formulario {
-  id: number;
-  nome: string;
-  cpf: string;
-  marca: string;
-  modelo: string;
-  defeito: string;
-  valor: string;
-  contato: string;
-  observacao: string;
-  status: 'Pendente' | 'Concluída';
-  dataHora: Date;
-  editando?: boolean; // Propriedade para controlar o modo de edição
-}
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrdemServico {
   // Linha base de dados json
-  //private apiUrl  = 'http://localhost:3001/formularios';
-  private apiUrl  = 'http://localhost:3000/ordem-de-servico';
+  private apiUrl  = 'http://localhost:3001/formularios';
+  //private apiUrl  = 'http://localhost:3000/ordem-de-servico';
 
-  private http = inject(HttpClient) //Substitui o construtor
+  private http = inject(HttpClient) //Substitui o construtor, permitindo a injeção de dependências diretamente na propriedade da classe. Isso torna o código mais limpo e fácil de ler, eliminando a necessidade de um construtor explícito para injetar o HttpClient.
 
-  //private refreshList = new BehaviorSubject<void>(undefined);
-  private refreshSubject = new BehaviorSubject<void>(undefined);
-
+  private atualizarLista = new BehaviorSubject<void>(undefined);
+  //É um tipo especial de Observable que guarda um valor e sempre o emite para novos inscritos. Ele serve como o seu "botão de atualizar".
+  // Sempre que você quiser recarregar os dados do servidor, basta chamar this.atualizarLista.next(). Como ele começa com undefined, a busca de dados acontece automaticamente assim que o componente carrega.
+  
   //GET BASE DE DADOS
   // BehaviorSubject guarda o estado atual e emite para quem estiver inscrito
-  // switchMap é usado para transformar o valor emitido pelo refreshSubject em uma nova Observable que faz a requisição HTTP
-  private formularios$ = this.refreshSubject.pipe(
-    switchMap(() => this.http.get<Formulario[]>(this.apiUrl)),
+  private formularios$ = this.atualizarLista.pipe(
+    switchMap(() => this.http.get<Formulario[]>(this.apiUrl)),// switchMap é usado para transformar o valor emitido pelo refreshSubject em uma nova Observable que faz a requisição HTTP
     map(dados => [...dados].reverse()),
     shareReplay(1)
   )
@@ -52,30 +39,30 @@ export class OrdemServico {
   // salva os dados do formulário no banco de dados
   salvarFormulario(dados: any): Observable<Formulario> {
     return this.http.post<Formulario>(this.apiUrl, dados).pipe(
-      tap(() => this.refreshSubject.next()) // Apos salvar, atualiza
+      tap(() => this.atualizarLista.next()) // Apos salvar, atualiza
     );
   }
 
   atualizarFormulario(id: number, dados: any): Observable<Formulario> {
     return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, dados).pipe(
-      tap(() => this.refreshSubject.next()) // Apos atualizar, atualiza
+      tap(() => this.atualizarLista.next()) // Apos atualizar, atualiza
     );
   }
 
   concluirOrdem(id: number): Observable<Formulario> {
     return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, {
       status: 'Concluída' }).pipe(
-      tap(() => this.refreshSubject.next()) // Apos concluir, atualiza
+      tap(() => this.atualizarLista.next()) // Apos concluir, atualiza
     );
   }
 
   excluirFormulario(id: number): Observable<Formulario> {
     return this.http.delete<Formulario>(`${this.apiUrl}/${id}`).pipe(
-      tap(() => this.refreshSubject.next()) // Apos excluir, atualiza
+      tap(() => this.atualizarLista.next()) // Apos excluir, atualiza
     );
   }
 
   recarregar(): void {
-    this.refreshSubject.next(); // Emite um valor para atualizar a lista
+    this.atualizarLista.next(); // Emite um valor para atualizar a lista
   }
 }

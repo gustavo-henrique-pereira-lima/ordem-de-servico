@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { OrdemServico } from '../../model/ordem-servico';
+import { OrdemServico } from '../../../services/ordem-servico';
 
 
 
@@ -51,11 +51,8 @@ export class PageForm {
       });
     }
     
-    // this.ordemServico.salvarFormulario(this.formulario.value).subscribe({
-    //   next: (res) => console.log('Dados enviados e salvos:', res),
-    //   error: (err) => console.error('Erro ao salvar:', err),
-    // });
-    // this.ordemServico.salvarFormulario(this.formulario.value)
+    // Limpa o formulário após o envio
+    this.formulario.reset(); 
 
     
   };
