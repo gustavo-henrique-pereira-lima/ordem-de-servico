@@ -38,6 +38,32 @@
       "observacao": "fuykyuk",
       "status": "Concluída",
       "dataHora": "2026-04-06T20:02:28.000Z"
+    },
+    {
+      "id": "7011",
+      "nome": "GUSTAVO HENRIQUE PEREIRA LIMA",
+      "cpf": "",
+      "marca": "Motorola",
+      "modelo": "edge 50 pro",
+      "defeito": "Modulo",
+      "valor": 300,
+      "contato": "98982332842",
+      "observacao": "hrdhhh",
+      "status": "Concluída",
+      "dataHora": "2026-04-07T23:40:15.815Z"
+    },
+    {
+      "id": "cba3",
+      "nome": "GUSTAVO HENRIQUE PEREIRA LIMA",
+      "cpf": "627.867.593-58",
+      "marca": "Motorola",
+      "modelo": "edge 50 pro",
+      "defeito": "Modulo",
+      "valor": 300,
+      "contato": "98982332842",
+      "observacao": "stjtdftyjgtjddddddddddddddddddd ddddddddddddddddddawetWEG WE wtgaer hsrth shst haehaerrhaerh aethahra hathahaherh aehatehaetha tha hehae aeh",
+      "status": "Pendente",
+      "dataHora": "2026-04-08T00:54:56.844Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

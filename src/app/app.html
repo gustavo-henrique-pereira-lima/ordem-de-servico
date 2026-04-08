@@ -1,31 +1,31 @@
 <div class="min-h-screen bg-[#08100d] text-gray-200 font-sans p-4 lg:p-5">
   <header class="mb-3 flex items-center justify-between px-1">
-      <div class="flex items-center gap-3">
-        <button (click)="toggleMenu()" class="w-10 h-10 bg-[#1fd68b] rounded-xl flex items-center justify-center text-[#08100d] shadow-sm">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <div>
-          <h1 class="text-2xl font-bold tracking-tight text-white flex items-center gap-1">
-            JDF<span class="text-[#1fd68b]">CELL</span>
-          </h1>
-          <p class="text-sm text-[#7aa899]">Painel de Operações</p>
-        </div>
-      </div>
+    <div class="flex items-center gap-3">
+      <button (click)="toggleMenu()" class="w-10 h-10 bg-[#1fd68b] rounded-xl flex items-center justify-center text-[#08100d] shadow-sm cursor-pointer" >
+        <mat-icon>menu</mat-icon>
+      </button>
       <div>
-        <app-mini-menu></app-mini-menu>
+        <h1 class="text-2xl font-bold tracking-tight text-white flex items-center gap-1">
+          JDF<span class="text-[#1fd68b]">CELL</span>
+        </h1>
+        <p class="text-sm text-[#7aa899]">Painel de Operações</p>
       </div>
-    </header>
-    <main class="flex">
-      @if (exibir) {
-          <app-menu />
-      }
-      <section class="flex-1 transition-all duration-300">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"> 
-          <app-page-form /> 
-          <app-list-historico-page />
-          <app-historico-ordem-servico />  
-        </div>
-      </section>
-</main>
+    </div>
+    <div>
+      <app-mini-menu></app-mini-menu>
+    </div>
+  </header>
+  <main class="flex">
+    @if (exibir) {
+        <app-menu />
+    }
+    <section class="flex-1 transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"> 
+        <app-page-form /> 
+        <app-list-historico-page />
+        <app-historico-ordem-servico />  
+      </div>
+    </section>
+  </main>
 </div>
 <router-outlet></router-outlet>
