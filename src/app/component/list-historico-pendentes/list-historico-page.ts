@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { OrdemServico } from '../../../services/ordem-servico';
+import { OrdemServico } from '../../services/ordem-servico';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 

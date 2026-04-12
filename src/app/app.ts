@@ -1,18 +1,12 @@
-import { ChangeDetectionStrategy, Component, signal, computed, inject } from '@angular/core';
+import { Component, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-
-import { ListHistoricoPage } from "./pages/home/list-historico-pendentes/list-historico-page";
-import { PageForm } from "./pages/home/page-form/page-form";
-import { HistoricoOrdemServico } from "./pages/home/historico-ordem-servico/historico-ordem-servico";
-import { MiniMenu } from './component/mini-menu/mini-menu';
 import { Menu } from './component/menu/menu';
+import { Home } from './pages/home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ListHistoricoPage, PageForm, HistoricoOrdemServico, MatIconModule, MiniMenu, Menu],
+  imports: [RouterOutlet, MatIconModule, Menu, Home],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

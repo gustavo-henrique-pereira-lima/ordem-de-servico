@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { OrdemServico } from '../../../services/ordem-servico';
+import { OrdemServico } from '../../services/ordem-servico';
 
 
 

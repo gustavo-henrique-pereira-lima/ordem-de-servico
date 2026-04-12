@@ -11,21 +11,11 @@
         <p class="text-sm text-[#7aa899]">Painel de Operações</p>
       </div>
     </div>
-    <div>
-      <app-mini-menu></app-mini-menu>
-    </div>
   </header>
   <main class="flex">
     @if (exibir) {
         <app-menu />
     }
-    <section class="flex-1 transition-all duration-300">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"> 
-        <app-page-form /> 
-        <app-list-historico-page />
-        <app-historico-ordem-servico />  
-      </div>
-    </section>
+    <router-outlet></router-outlet>
   </main>
 </div>
-<router-outlet></router-outlet>

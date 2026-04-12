@@ -64,6 +64,19 @@
       "observacao": "stjtdftyjgtjddddddddddddddddddd ddddddddddddddddddawetWEG WE wtgaer hsrth shst haehaerrhaerh aethahra hathahaherh aehatehaetha tha hehae aeh",
       "status": "Pendente",
       "dataHora": "2026-04-08T00:54:56.844Z"
+    },
+    {
+      "id": "7cc7",
+      "nome": "GUSTAVO HENRIQUE PEREIRA LIMA",
+      "cpf": "627.867.593-58",
+      "marca": "Motorola",
+      "modelo": "edge 50 pro",
+      "defeito": "Modulo",
+      "valor": 1.3,
+      "contato": "98982332842",
+      "observacao": "",
+      "status": "Concluída",
+      "dataHora": "2026-04-12T11:39:39.192Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

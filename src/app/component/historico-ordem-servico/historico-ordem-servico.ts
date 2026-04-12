@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { OrdemServico } from '../../../services/ordem-servico';
+import { OrdemServico } from '../../services/ordem-servico';
 
 @Component({
   selector: 'app-historico-ordem-servico',
