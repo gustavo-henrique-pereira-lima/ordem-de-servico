@@ -29,6 +29,8 @@ export class PageForm {
     marca: new FormControl(''),
     modelo: new FormControl(''),
     defeito: new FormControl(''),
+    cor: new FormControl(''),
+    nSerieOuImei: new FormControl(''),
     valor: new FormControl(''),
     contato: new FormControl(''),
     observacao: new FormControl(''),

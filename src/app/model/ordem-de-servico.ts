@@ -5,6 +5,8 @@ interface Formulario {
   marca: string;
   modelo: string;
   defeito: string;
+  cor: string;
+  nSerieOuImei: string;
   valor: string;
   contato: string;
   observacao: string;

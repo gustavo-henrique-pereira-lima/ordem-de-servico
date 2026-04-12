@@ -6,7 +6,7 @@ import { Home } from './pages/home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [Home, MatIconModule, Menu, RouterOutlet],
+  imports: [ MatIconModule, Menu, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
