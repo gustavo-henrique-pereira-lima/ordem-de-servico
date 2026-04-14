@@ -10,8 +10,8 @@ import { switchMap, map, shareReplay, tap } from 'rxjs/operators';
 })
 export class OrdemServico {
   // Linha base de dados json
-  private apiUrl  = 'http://localhost:3001/formularios';
-  //private apiUrl  = 'http://localhost:3000/ordem-de-servico';
+  //private apiUrl  = 'http://localhost:3001/formularios';
+  private apiUrl  = 'http://localhost:8080/api/registros';
 
   private http = inject(HttpClient) //Substitui o construtor, permitindo a injeção de dependências diretamente na propriedade da classe. Isso torna o código mais limpo e fácil de ler, eliminando a necessidade de um construtor explícito para injetar o HttpClient.
 

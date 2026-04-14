@@ -42,12 +42,23 @@ export class PageForm {
 
   onSubmit(): void {
     if (this.formulario.valid) {
-      const dataBruta = new Date(); // Obtém a data e hora atual
-      const dataCorrigida = new Date(dataBruta.getTime() - dataBruta.getTimezoneOffset() * 60000); // Ajusta para o fuso horário local
-      this.formulario.patchValue({ dataHora: dataCorrigida }); // Atualiza o campo dataHora com a data corrigida para o meu objeto
+      const formValue = this.formulario.value;
+      const payload = {
+        nome: formValue.nome,
+        cpf: formValue.cpf,
+        marca: formValue.marca,
+        modelo: formValue.modelo,
+        defeito: formValue.defeito,
+        cor: formValue.cor,
+        imei_nserie: formValue.nSerieOuImei,
+        valor: Number(formValue.valor), // se o backend quer número
+        contato: formValue.contato,
+        observacao: formValue.observacao,
+        statusText: formValue.status,
+      };
 
       // Envia os dados do formulário para o serviço
-      this.ordemServico.salvarFormulario(this.formulario.value).subscribe({ 
+      this.ordemServico.salvarFormulario(payload).subscribe({ 
         next: (res) => console.log('Dados enviados e salvos:', res),
         error: (err) => console.error('Erro ao salvar:', err),
       });

@@ -11,6 +11,5 @@ interface Formulario {
   contato: string;
   observacao: string;
   status: 'Pendente' | 'Concluída';
-  dataHora: Date;
   editando?: boolean; // Propriedade para controlar o modo de edição
 }
