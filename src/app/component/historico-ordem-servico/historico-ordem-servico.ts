@@ -15,6 +15,13 @@ export class HistoricoOrdemServico {
 
   public formularios: any[] = [];
 
-  public servicosConcluidos$ = this.ordemServico.servicosConcluidos;
+
+  dataService = inject(OrdemServico);
+  config: any[] = [];
+
+// Ao iniciar o componente, inscreve-se para receber atualizações dos formulários e carrega os dados iniciais
+  ngOnInit(): void {
+
+  }
 
 }

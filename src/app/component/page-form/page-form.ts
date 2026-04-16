@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, signal, computed, inject } from '@angular/core';
-import { FormControl,  ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -16,12 +16,7 @@ import { OrdemServico } from '../../services/ordem-servico';
   styleUrl: './page-form.css',
 })
 export class PageForm {
-    // Substitui o construtor para usar a injeção de dependência com o método `inject`
-  //constructor(private ordemServico: OrdemServico){}
   private ordemServico = inject(OrdemServico);
-
-  // Evoluímos a lista para ter um nome e um ícone do Material Icons
-
 
   formulario = new FormGroup({
     nome: new FormControl(''),
@@ -37,7 +32,6 @@ export class PageForm {
     status: new FormControl('Pendente'),
     dataHora: new FormControl(new Date()),
   });
-
 
 
   onSubmit(): void {
@@ -59,13 +53,21 @@ export class PageForm {
 
       // Envia os dados do formulário para o serviço
       this.ordemServico.salvarFormulario(payload).subscribe({ 
-        next: (res) => console.log('Dados enviados e salvos:', res),
+        next: (res) => {
+          console.log('Dados enviados e salvos:', res);
+          this.ordemServico.recarregar();
+          this.formulario.reset(); 
+        },
+
         error: (err) => console.error('Erro ao salvar:', err),
       });
+
+      
+      // Limpa o formulário após o envio
+      
+
     }
-    
-    // Limpa o formulário após o envio
-    this.formulario.reset(); 
+
 
     
   };
