@@ -13,12 +13,11 @@
     </div>
   </header>
   <main class="flex">
-    @if (exibir) {
-        <app-menu />
+    @if (exibir()) {
+      <app-menu />
     }
     <section class="flex-1 transition-all duration-300">
       <router-outlet></router-outlet>
     </section>
-    
   </main>
 </div>

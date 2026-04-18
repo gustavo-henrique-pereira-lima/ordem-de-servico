@@ -1,57 +1,50 @@
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
-import { OrdemServico } from '../../services/ordem-servico';
-import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { map, Observable } from 'rxjs';
-
+import { Formulario } from '../../model/ordem-de-servico';
+import { OrdemServico } from '../../services/ordem-servico';
 
 @Component({
+  standalone: true,
   selector: 'app-list-historico-page',
-  imports: [AsyncPipe, MatIconModule, FormsModule],
+  imports: [AsyncPipe, CommonModule, MatIconModule, FormsModule],
   templateUrl: './list-historico-page.html',
   styleUrl: './list-historico-page.css',
 })
 export class ListHistoricoPage implements OnInit {
-  
+  private readonly dataService = inject(OrdemServico);
+  readonly lista$: Observable<Formulario[]> = this.dataService.produtoAtualziado$.pipe(
+    map((dados) => dados.content)
+  );
 
-  private dataService = inject(OrdemServico);
-  lista$: Observable<any[]> = new Observable();
+  editando = signal(false);
 
-  // Ao iniciar o componente, inscreve-se para receber atualizações dos formulários e carrega os dados iniciais
   ngOnInit(): void {
-    this.lista$ = this.dataService.produtoAtualziado$.pipe(
-      map((dados: any) => dados.content)
-    );
+    // O observable lista$ já é inicializado antes do template ser renderizado.
   }
 
   onConcluir(id: number): void {
-    this.dataService.concluirOrdem(id).subscribe(() => {
-      // A atualização da lista é feita automaticamente pelo BehaviorSubject
-    });
+    this.dataService.concluirOrdem(id).subscribe();
   }
 
   onExcluir(id: number): void {
-    if (confirm('Tem certeza que deseja excluir este formulário?')) {
-      this.dataService.excluirFormulario(id).subscribe(() => {
-        // A atualização da lista é feita automaticamente pelo BehaviorSubject
-      });
+    if (typeof window === 'undefined' || !window.confirm('Tem certeza que deseja excluir este formulário?')) {
+      return;
     }
+
+    this.dataService.excluirFormulario(id).subscribe();
   }
 
-  // setor de edição
-  editando = signal(false);
-
-  toggleEdit(ordem: any): void {
+  toggleEdit(ordem: Formulario): void {
     ordem.editando = !ordem.editando;
   }
 
-  salvarEdicao(ordem: any): void {
-    const { editando, ...dadosParaSalvar } = ordem; // Remove a propriedade editando
+  salvarEdicao(ordem: Formulario): void {
+    const { editando, ...dadosParaSalvar } = ordem;
     this.dataService.atualizarFormulario(ordem.id, dadosParaSalvar).subscribe(() => {
       ordem.editando = false;
-      console.log('Dados editados salvos:', dadosParaSalvar);
     });
   }
-
 }

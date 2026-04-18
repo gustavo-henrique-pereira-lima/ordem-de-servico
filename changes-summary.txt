@@ -1,0 +1,27 @@
+Resumo das alterações aplicadas no projeto Ordem de Serviço
+
+1. Componentes Standalone
+- Todos os componentes relevantes foram atualizados para `standalone: true`.
+- Arquivos ajustados: `src/app/app.ts`, `src/app/pages/home/home.ts`, `src/app/pages/atendimento/atendimento.ts`, `src/app/component/menu/menu.ts`, `src/app/component/lista-de-devedores/lista-de-devedores.ts`, `src/app/component/mini-menu/mini-menu.ts`, `src/app/component/list-historico-pendentes/list-historico-page.ts`, `src/app/component/historico-ordem-servico/historico-ordem-servico.ts`, `src/app/component/page-form/page-form.ts`.
+
+2. Uso de Signals e SSR
+- `src/app/app.ts` alterado para usar `signal(false)` em vez de booleano simples.
+- Template `src/app/app.html` adaptado para `@if (exibir())`.
+
+3. Tipagem Estrita e Modelos
+- `src/app/model/ordem-de-servico.ts` atualizado para exportar `Formulario`, `PagedResponse` e `OrdemServicoRequest`.
+- Campo `valor` foi ajustado de `string` para `number`.
+
+4. Serviço de Ordem de Serviço
+- `src/app/services/ordem-servico.ts` atualizado para usar tipos fortemente tipados e evitar `any`.
+- Métodos `getOrdemDeServicos`, `salvarFormulario`, `atualizarFormulario`, `concluirOrdem`, `excluirFormulario` e `produtoAtualziado$` foram alinhados com modelos tipados.
+
+5. Roteamento e correções de rotas
+- `src/app/app.routes.ts` corrigido o fallback de rota de `*` para `**`.
+
+6. Outros ajustes
+- Inclusão de `nonNullable: true` em controles reativos de `src/app/component/page-form/page-form.ts` para compatibilidade com tipagem estrita.
+- `src/app/app.ts` removida importação não usada de `Home`.
+
+Validação
+- Os arquivos alterados foram verificados com `get_errors` e não apresentaram erros de sintaxe ou tipagem nos arquivos listados.

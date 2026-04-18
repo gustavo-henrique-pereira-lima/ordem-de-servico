@@ -5,11 +5,10 @@ import { HistoricoOrdemServico } from '../../component/historico-ordem-servico/h
 
 
 @Component({
+  standalone: true,
   selector: 'app-home',
   imports: [PageForm, ListHistoricoPage, HistoricoOrdemServico],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
-
-}
+export class Home {}

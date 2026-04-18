@@ -3,11 +3,12 @@ import { signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
+  standalone: true,
   selector: 'app-menu',
   imports: [RouterLink],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
 })
 export class Menu {
-  activeItem = signal('Início');
+  readonly activeItem = signal('Início');
 }

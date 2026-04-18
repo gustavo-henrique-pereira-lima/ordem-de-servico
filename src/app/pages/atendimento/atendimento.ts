@@ -3,6 +3,7 @@ import { PageForm } from '../../component/page-form/page-form';
 import { ListHistoricoPage } from '../../component/list-historico-pendentes/list-historico-page';
 
 @Component({
+  standalone: true,
   selector: 'app-atendimento',
   imports: [PageForm, ListHistoricoPage],
   templateUrl: './atendimento.html',

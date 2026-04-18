@@ -5,11 +5,10 @@ import { ListaDeDevedores } from './component/lista-de-devedores/lista-de-devedo
 import { HistoricoOrdemServico } from './component/historico-ordem-servico/historico-ordem-servico';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'atendimento', pathMatch: 'full' },
-    {path: '*', redirectTo: 'atendimento', pathMatch: 'full' },
-    {path: 'atendimento', component: Atendimento},
-    {path: 'home', component: Home},
-    {path: 'devedores', component: ListaDeDevedores},
-    {path: 'historico', component: HistoricoOrdemServico},
-    
+  { path: '', redirectTo: 'atendimento', pathMatch: 'full' },
+  { path: '**', redirectTo: 'atendimento', pathMatch: 'full' },
+  { path: 'atendimento', component: Atendimento },
+  { path: 'home', component: Home },
+  { path: 'devedores', component: ListaDeDevedores },
+  { path: 'historico', component: HistoricoOrdemServico },
 ];

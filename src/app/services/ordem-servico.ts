@@ -1,61 +1,57 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { switchMap, map, shareReplay, tap } from 'rxjs/operators';
-
-
+import { BehaviorSubject, Observable, shareReplay, switchMap, tap } from 'rxjs';
+import { Formulario, OrdemServicoRequest, PagedResponse } from '../model/ordem-de-servico';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrdemServico {
 
-  private apiUrl  = 'http://localhost:8080/api/registros';
+  private readonly apiUrl = 'http://localhost:8080/api/registros';
+  private readonly http = inject(HttpClient);
+  private readonly atualizarLista = new BehaviorSubject<void>(undefined);
+  readonly acaoAtualizarLista$ = this.atualizarLista.asObservable();
 
-  private http = inject(HttpClient)
-
-
-
-  getOrdemDeServicos(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getOrdemDeServicos(): Observable<PagedResponse<Formulario>> {
+    return this.http.get<PagedResponse<Formulario>>(this.apiUrl);
   }
 
-  private atualizarLista = new BehaviorSubject<void>(undefined);
-
-
-  acaoAtualizarLista$ = this.atualizarLista.asObservable()
-
-  // salva os dados do formulário no banco de dados
-  salvarFormulario(dados: any): Observable<Formulario> {
+  salvarFormulario(dados: OrdemServicoRequest): Observable<Formulario> {
     return this.http.post<Formulario>(this.apiUrl, dados).pipe(
-      tap(() => this.atualizarLista.next()) // Apos salvar, atualiza
+      tap(() => this.atualizarLista.next())
     );
   }
-  atualizarFormulario(id: number, dados: any): Observable<Formulario> {
-    return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, dados).pipe(
-      tap(() => this.atualizarLista.next()) // Apos atualizar, atualiza
+
+  atualizarFormulario(id: number, dados: Partial<Formulario>): Observable<Formulario> {
+    return this.http.put<Formulario>(`${this.apiUrl}/${id}`, dados).pipe(
+      tap(() => this.atualizarLista.next())
     );
   }
+
   concluirOrdem(id: number): Observable<Formulario> {
     return this.http.patch<Formulario>(`${this.apiUrl}/${id}`, {
-      status: 'Concluída' }).pipe(
-      tap(() => this.atualizarLista.next()) // Apos concluir, atualiza
+      status: 'Concluída',
+    }).pipe(
+      tap(() => this.atualizarLista.next())
     );
-  }
-  excluirFormulario(id: number): Observable<Formulario> {
-    return this.http.delete<Formulario>(`${this.apiUrl}/${id}`).pipe(
-      tap(() => this.atualizarLista.next()) // Apos excluir, atualiza
-    );
-  }
-  recarregar(): void {
-    this.atualizarLista.next(); // Emite um valor para atualizar a lista
   }
 
-  get produtoAtualziado$(): Observable<any> {
-    return this.acaoAtualizarLista$.pipe(
-       switchMap(() => this.getOrdemDeServicos()),
-       shareReplay(1)
+  excluirFormulario(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      tap(() => this.atualizarLista.next())
     );
-}
+  }
+
+  recarregar(): void {
+    this.atualizarLista.next();
+  }
+
+  get produtoAtualziado$(): Observable<PagedResponse<Formulario>> {
+    return this.acaoAtualizarLista$.pipe(
+      switchMap(() => this.getOrdemDeServicos()),
+      shareReplay(1)
+    );
+  }
 
 }
