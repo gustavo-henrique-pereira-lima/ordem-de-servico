@@ -6,7 +6,7 @@ import { HistoricoOrdemServico } from './component/historico-ordem-servico/histo
 
 export const routes: Routes = [
   { path: '', redirectTo: 'atendimento', pathMatch: 'full' },
-  { path: '**', redirectTo: 'atendimento', pathMatch: 'full' },
+  { path: '*', redirectTo: 'atendimento', pathMatch: 'full' },
   { path: 'atendimento', component: Atendimento },
   { path: 'home', component: Home },
   { path: 'devedores', component: ListaDeDevedores },

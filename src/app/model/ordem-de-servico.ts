@@ -34,3 +34,25 @@ export interface OrdemServicoRequest {
   statusText: Formulario['status'];
   dataHora: Date;
 }
+
+export interface FiltrosRegistro {
+  page: number;
+  size: number;
+  dataReferencia?: Date;
+  todos: boolean;
+  pendentes: boolean;
+  concluidos: boolean;
+}
+
+export interface Page<T> {
+  content: T[];
+  totalElements: number;
+  totalPages: number;
+  size: number;
+  number: number;
+}
+
+export interface RegistroResponseDTO {
+  id: number;
+  // TODO: Adicionar mapeamento dos DTOs de Ordem de Serviço
+}
